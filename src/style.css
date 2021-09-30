@@ -1,0 +1,10 @@
+.Jumbotron {
+    background-color: #61dafb;
+    color: aquamarine;
+  }
+
+  .btn-success {
+    color: #fff;
+    background-color: #2dee94;
+    border-color: #56f7ac;
+}
