@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-router-dom'
 import { Member } from './members/Member';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Redirect,
-  Route,
-  Link
-} from 'react-router-dom'
-import { Login } from './login/Login';
 import { Home } from './home/Home';
+import { Login } from './login/Login';
 import { Logout } from './login/Logout';
-import { Admin }  from './admin/Admin';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import { Register } from './login/Register';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css';
+import './App.css';
+import './styling/style.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 type AppState = {
   token: string
@@ -53,30 +48,17 @@ class App extends Component<{}, AppState>{
       <Router>
         <div className="App">
         <Navbar color="inverse" light expand="md">
-          <NavbarBrand href="/">progress report</NavbarBrand> 
+          <NavbarBrand href="/">&nbsp; <i className="fa fa-spinner fa-spin"></i>  progress report</NavbarBrand> 
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/resources/">Resources</NavLink>      
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap
-                /reactstrap">Entries</NavLink>
+                <NavLink href="/">resources</NavLink>      
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
         <br/>
-        <Jumbotron>
-          <Container>
-            <Row>
-              <Col>
-                <h1>Welcome Progress Report</h1><br/>
-              </Col>
-            </Row>
-          </Container>
-        </Jumbotron>
           <Switch>
             <Route exact path="/">
               <Home token={this.state.token}/>
@@ -84,14 +66,14 @@ class App extends Component<{}, AppState>{
             <Route path="/login">
               <Login setToken={this.setToken} />
             </Route>
+            <Route path="/register">
+              <Register setToken={this.setToken} />
+            </Route>
             <Route path="/logout">
               <Logout setToken={this.setToken} />
             </Route>
             <Route path="/member/">
               {this.ifAuthed(<Member />)}
-            </Route>
-            <Route path="/admin/">
-              {this.ifAdmin(<Admin />)}
             </Route>
           </Switch>
         </div>

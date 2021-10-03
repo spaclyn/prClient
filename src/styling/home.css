@@ -1,0 +1,55 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&family=Stick+No+Bills:wght@500;600&display=swap');
+
+
+
+.jumbotron {
+    background: #e6e6e6 !important;
+    padding: 5em;
+    margin-top: 5em;
+}
+
+#logo {
+    color: #976ecc !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+#titlecard{
+    padding-top: 3em;
+    color: #976ecc !important;
+    font-weight: 500;
+}
+
+#blurb{
+    padding-top: 5.5em;
+    font-size: 12px;
+    text-align: justify;
+    
+}
+
+#inblurb {
+    color: #976ecc !important;
+    size: 13px;
+}
+
+.btn-success{
+    background-color: #a67fda!important;
+    border-color: #a67fda !important;
+}
+
+@media screen and (max-width: 400px) {
+    #titlecard {
+        font-size: 8vw;
+        padding-top: 5em;
+    }
+    #blurb{
+        padding-top: 3em;
+        font-size: 12px;
+        text-align: justify;
+        height: auto
+    }
+    
+
+  }
+  

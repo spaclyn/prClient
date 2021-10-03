@@ -6,10 +6,10 @@ import '../styling/home.css'
 //import { User } from "../controllers/users";
 //import { throws } from "assert";
 
-type LoginProps = {
+type RegProps = {
     setToken(tStr: string): void
 }
-type LoginState = {
+type RegState = {
     email: string
     password: string
     name: string
@@ -17,8 +17,8 @@ type LoginState = {
     hasLoggedIn: boolean
 }
 
-export class Login extends Component<LoginProps, LoginState>{
-    constructor(props: LoginProps){
+export class Register extends Component<RegProps, RegState>{
+    constructor(props: RegProps){
         super(props)
         this.state = {
             email: "",
@@ -33,12 +33,14 @@ export class Login extends Component<LoginProps, LoginState>{
     onSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         //componentDidMount()
-        fetch("http://localhost:3000/user/login", {
+        fetch("http://localhost:3000/user/register", {
             method: 'POST',
             body: JSON.stringify({
                 user: {
                     email: this.state.email,
                     password: this.state.password,
+                    name: this.state.name,
+                    handle: this.state.handle,
                 }
             }),
             headers: new Headers({
@@ -60,7 +62,7 @@ export class Login extends Component<LoginProps, LoginState>{
         return this.state.hasLoggedIn ? <Redirect to="/member/"/>
         :(
             <>
-                {""}
+                
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     this.props.setToken(this.state.email)
@@ -68,7 +70,9 @@ export class Login extends Component<LoginProps, LoginState>{
                 }
                     }>
                     <div><input type="email"  placeholder="email" onChange={(e) => { this.setState({email: e.target.value})}} /><br/>
-                    <input type="password" placeholder="password" onChange={(e) => { this.setState({password: e.target.value})}} /></div>
+                    <input type="password" placeholder="password" onChange={(e) => { this.setState({password: e.target.value})}} /><br/>
+                    <input type="text" placeholder="name" onChange={(e) => { this.setState({name: e.target.value})}} /><br/>
+                    <input type="text" placeholder="handle" onChange={(e) => { this.setState({handle: e.target.value})}} /></div>
                     <Button color="success" type="submit"> Login </Button>
                 </form>
             </>

@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+}
 
+body{
+  background: #f1f1f1 !important;
 }
 
 .App-logo {
@@ -14,10 +17,6 @@
   }
 }
 
-.Jumbotron {
-  background-color: #61dafb;
-  color: aquamarine;
-}
 
 .App-header {
   background-color: #282c34;
