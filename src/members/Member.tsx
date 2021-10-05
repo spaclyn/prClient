@@ -38,6 +38,7 @@ export class Member extends Component<MemberProps, MemberState>{
                                 <Input className="Form-Input" type="text" name="Date" placeholder="when did you start it, finish it?"></Input>
                                 <Label for="Details">Details</Label>
                                 <textarea className="form-control" placeholder="get it off your chest...."></textarea>
+                                <Button color="success" type="submit"> publish </Button>
                                 </FormGroup>
                             </Form>
                         </Col>
