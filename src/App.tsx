@@ -10,6 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './styling/style.css';
 import 'font-awesome/css/font-awesome.min.css';
+import { Resources } from './members/Resources';
+import { Timer } from './members/Timer';
 
 type AppState = {
   token: string
@@ -53,7 +55,10 @@ class App extends Component<{}, AppState>{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">resources</NavLink>      
+                <NavLink href=""><Link to="/resources">resources</Link></NavLink>      
+              </NavItem>
+              <NavItem>
+                <NavLink href=""><Link to="/timer">timer</Link></NavLink>      
               </NavItem>
             </Nav>
           </Collapse>
@@ -72,8 +77,14 @@ class App extends Component<{}, AppState>{
             <Route path="/logout">
               <Logout setToken={this.setToken} />
             </Route>
+            <Route path="/resources">
+            {this.ifAuthed(<Resources />)}
+            </Route>
             <Route path="/member/">
               {this.ifAuthed(<Member />)}
+            </Route>
+            <Route path="/timer">
+              {this.ifAuthed(<Timer />)}
             </Route>
           </Switch>
         </div>

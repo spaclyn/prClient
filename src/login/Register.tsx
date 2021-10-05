@@ -62,7 +62,7 @@ export class Register extends Component<RegProps, RegState>{
         return this.state.hasLoggedIn ? <Redirect to="/member/"/>
         :(
             <>
-                
+                <h1><p id="titlecard"><i className="fa fa-spinner fa-spin"></i></p></h1> <br/>
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     this.props.setToken(this.state.email)
@@ -73,7 +73,7 @@ export class Register extends Component<RegProps, RegState>{
                     <input type="password" placeholder="password" onChange={(e) => { this.setState({password: e.target.value})}} /><br/>
                     <input type="text" placeholder="name" onChange={(e) => { this.setState({name: e.target.value})}} /><br/>
                     <input type="text" placeholder="handle" onChange={(e) => { this.setState({handle: e.target.value})}} /></div>
-                    <Button color="success" type="submit"> Login </Button>
+                    <br/> <Button color="success" type="submit"> Register </Button>
                 </form>
             </>
         )

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styling/home.css'
@@ -67,9 +68,12 @@ export class Login extends Component<LoginProps, LoginState>{
                     this.setState({hasLoggedIn: true})
                 }
                     }>
+                        <h1><p id="titlecard"><i className="fa fa-spinner"></i></p></h1>
+                        <br/>
                     <div><input type="email"  placeholder="email" onChange={(e) => { this.setState({email: e.target.value})}} /><br/>
                     <input type="password" placeholder="password" onChange={(e) => { this.setState({password: e.target.value})}} /></div>
-                    <Button color="success" type="submit"> Login </Button>
+                    <br/><Button color="success" type="submit"> Login </Button><br/>
+                    <Link to="/register"><i>don't have an account with us?</i></Link>
                 </form>
             </>
         )
